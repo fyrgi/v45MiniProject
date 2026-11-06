@@ -1,0 +1,17 @@
+[
+  {
+    "Id": 1,
+    "Country": "Sweden",
+    "Currency": "SEK"
+  },
+  {
+    "Id": 2,
+    "Country": "USA",
+    "Currency": "USD"
+  },
+  {
+    "Id": 3,
+    "Country": "Turkey",
+    "Currency": "TRY"
+  }
+]
