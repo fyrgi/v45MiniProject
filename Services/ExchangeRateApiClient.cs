@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using v45MiniProject.Models;
 
+// Not in use for now. 
 namespace v45MiniProject.Services
 {
     public class ExchangeRateApiClient

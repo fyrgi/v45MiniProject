@@ -8,9 +8,7 @@ namespace v45MiniProject.Presentation
 {
     internal class UI
     {
-        public static void ShowMessage(
-            string message,
-            string messageType)
+        public static void ShowMessage(string message, string messageType)
         {
             switch (messageType)
             {
@@ -52,8 +50,8 @@ namespace v45MiniProject.Presentation
             Console.WriteLine();
         }
 
-        public static void ShowDevicesByOffice2(
-            DeviceManager deviceManager)
+        // This display is not currently in use.
+        public static void ShowDevicesByOffice2(DeviceManager deviceManager)
         {
             DateTime today = DateTime.Today;
 
@@ -67,8 +65,7 @@ namespace v45MiniProject.Presentation
                     $"{office.Country.ToUpper()} ({office.Currency})",
                     "statistics");
 
-                List<Device> devices =
-                    deviceManager.GetDevicesByOffice(office.Id);
+                List<Device> devices = deviceManager.GetDevicesByOffice(office.Id);
 
                 if (devices.Count == 0)
                 {
@@ -78,9 +75,7 @@ namespace v45MiniProject.Presentation
 
                 foreach (Device device in devices)
                 {
-                    DeviceLifeStatus status =
-                        deviceManager.GetDeviceLifeStatus(
-                            device, today);
+                    DeviceLifeStatus status = deviceManager.GetDeviceLifeStatus(device, today);
 
                     string messageType = status switch
                     {
@@ -111,6 +106,8 @@ namespace v45MiniProject.Presentation
                 }
             }
         }
+
+        // The display in use is a more compact table format for showing devices by office.
         public static void ShowDevicesByOffice(DeviceManager deviceManager)
         {
             DateTime today = DateTime.Today;
@@ -123,14 +120,15 @@ namespace v45MiniProject.Presentation
                 Console.ResetColor();
 
                 // Table header
-                Console.WriteLine(new string('-', 125));
+                Console.WriteLine(new string('-', 135));
 
                 Console.WriteLine(
                     $"{"ID",-5} {"Type",-12} {"Brand",-12} {"Model",-22} " +
-                    $"{"Purchased",-16} {"Use before",-16} " +
-                    $"{"Price USD",-17} {"Local price",-17}");
+                    $"{"Purchased",-16} {"Use before",-16}" +
+                    $"{"Price USD",-17} {"Local price("+office.Currency+")",-18}" +
+                    $"{"Status", - 9}");
 
-                Console.WriteLine(new string('-', 125));
+                Console.WriteLine(new string('-', 135));
 
                 List<Device> devices = deviceManager.GetDevicesByOffice(office.Id);
 
@@ -141,8 +139,7 @@ namespace v45MiniProject.Presentation
 
                 foreach (Device device in devices)
                 {
-                    DeviceLifeStatus status =
-                        deviceManager.GetDeviceLifeStatus(device, today);
+                    DeviceLifeStatus status = deviceManager.GetDeviceLifeStatus(device, today);
 
                     Console.ForegroundColor = status switch
                     {
@@ -151,17 +148,14 @@ namespace v45MiniProject.Presentation
                         _ => ConsoleColor.White
                     };
 
-                    string mainPrice =
-                        $"{device.PriceMainOffice:N2} {device.CurrencyMainOffice}";
+                    string mainPrice = $"{device.PriceMainOffice:N2}";
 
-                    string localPrice =
-                        $"{device.PriceLocalOffice:N2} {device.CurrencyLocalOffice}";
+                    string localPrice = $"{device.PriceLocalOffice:N2}";
 
                     string model = Fit(device.Model, 22);
                     string brand = Fit(device.Brand, 12);
 
-                    string statusText =
-                        device.EndOfLifeDate < today ? " EXPIRED" : "";
+                    string statusText = device.EndOfLifeDate < today ? " EXPIRED" : "";
 
                     Console.WriteLine(
                         $"{device.Id,-5} " +
@@ -177,7 +171,7 @@ namespace v45MiniProject.Presentation
                     Console.ResetColor();
                 }
 
-                Console.WriteLine(new string('-', 125));
+                Console.WriteLine(new string('-', 135));
             }
         }
 

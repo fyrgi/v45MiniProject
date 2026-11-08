@@ -36,9 +36,7 @@ namespace v45MiniProject.Services
         }
 
         // Determine the device's end-of-life status
-        public DeviceLifeStatus GetDeviceLifeStatus(
-            Device device,
-            DateTime today)
+        public DeviceLifeStatus GetDeviceLifeStatus(Device device, DateTime today)
         {
             if (device.EndOfLifeDate <= today.AddMonths(3))
             {

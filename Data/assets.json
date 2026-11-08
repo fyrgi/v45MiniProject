@@ -208,5 +208,19 @@
     "SourceOfCurrency": "Hardcoded",
     "PurchaseDate": "2025-03-15T00:00:00",
     "EndOfLifeDate": "2028-03-15T00:00:00"
+  },
+  {
+    "Id": 16,
+    "DeviceType": 5,
+    "OfficeId": 1,
+    "Brand": "Logitech",
+    "Model": "Webcam",
+    "PriceMainOffice": 250,
+    "CurrencyMainOffice": "USD",
+    "PriceLocalOffice": 2500,
+    "CurrencyLocalOffice": "SEK",
+    "SourceOfCurrency": "Hardcoded",
+    "PurchaseDate": "2022-03-15T00:00:00",
+    "EndOfLifeDate": "2025-03-15T00:00:00"
   }
 ]

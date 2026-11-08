@@ -2,8 +2,6 @@
 using v45MiniProject.Presentation;
 using v45MiniProject.Services;
 
-Console.WriteLine("Hello, World!");
-
 string programFolder = Path.GetFullPath(
     Path.Combine(AppContext.BaseDirectory, @"..\..\..\Data"));
 
