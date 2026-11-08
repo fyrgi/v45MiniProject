@@ -25,6 +25,8 @@ The application currently:
 
 At startup, the current program displays the inventory once and then waits for input before exiting. It does not yet provide an interactive menu.
 
+<img width="1108" height="541" alt="image" src="https://github.com/user-attachments/assets/dd3d56dc-4163-46f8-ac3b-96931842077a" />
+
 ## Project structure
 
 ```text
